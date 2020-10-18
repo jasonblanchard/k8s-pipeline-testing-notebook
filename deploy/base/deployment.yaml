@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notebook
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - image: jasonblanchard/k8s-pipeline-notebook:1
+        name: k8s-pipeline-service
+        ports:
+          - containerPort: 8000
