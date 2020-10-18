@@ -5,5 +5,5 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 8000
+    port: 9000
   type: NodePort
