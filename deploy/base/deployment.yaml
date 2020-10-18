@@ -8,6 +8,12 @@ spec:
     spec:
       containers:
       - image: jasonblanchard/k8s-pipeline-notebook:1
-        name: k8s-pipeline-service
+        name: notebook
         ports:
           - containerPort: 8000
+        env:
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: notebook-config
+                key: PORT

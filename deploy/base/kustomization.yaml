@@ -5,3 +5,8 @@ resources:
   - service.yaml
 commonLabels:
   app: notebook
+configMapGenerator:
+  - name: notebook-config
+    literals:
+      - PORT=8000
+
