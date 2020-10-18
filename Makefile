@@ -3,7 +3,7 @@ IMAGE_NAME=k8s-pipeline-notebook
 IMAGE_REPO=jasonblanchard/${IMAGE_NAME}
 LOCAL_TAG=${IMAGE_REPO}
 LATEST_TAG=${IMAGE_REPO}:latest
-VERSION=1
+VERSION=2
 VERSION_TAG=${IMAGE_REPO}:${VERSION}
 
 build:
