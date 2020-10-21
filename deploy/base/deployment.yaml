@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-      - image: jasonblanchard/k8s-pipeline-notebook:1
+      - image: jasonblanchard/k8s-pipeline-notebook
         name: notebook
         ports:
           - containerPort: 8000
