@@ -13,4 +13,5 @@ jobs:
       with:
         image: 'jasonblanchard/k8s-pipeline-notebook'
         tag: ${{ github.sha }}
+        path: '.'
         builder: 'heroku/buildpacks:18'
