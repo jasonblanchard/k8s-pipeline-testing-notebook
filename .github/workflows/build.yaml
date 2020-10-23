@@ -23,4 +23,5 @@ jobs:
     - name: push
       run: |
         docker push jasonblanchard/k8s-pipeline-notebook:${{ github.sha }}
+        docker tag jasonblanchard/k8s-pipeline-notebook:${{ github.sha }} jasonblanchard/k8s-pipeline-notebook:latest
         docker push jasonblanchard/k8s-pipeline-notebook:latest
