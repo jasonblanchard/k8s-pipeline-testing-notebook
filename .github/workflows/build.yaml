@@ -20,3 +20,5 @@ jobs:
         tag: ${{ github.sha }}
         path: '.'
         builder: 'heroku/buildpacks:18'
+    - name: push
+      run: docker push jasonblanchard/k8s-pipeline-notebook:${{ github.sha }}
