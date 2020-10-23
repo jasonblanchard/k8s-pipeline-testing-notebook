@@ -1,0 +1,16 @@
+name: build
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build image
+      uses: mamezou-tech/buildpacks-action@master
+      with:
+        image: 'jasonblanchard/k8s-pipeline-notebook'
+        tag: ${{ github.sha }}
+        builder: 'heroku/buildpacks:18'
