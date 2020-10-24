@@ -14,7 +14,9 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: build & push
-      run: make build
+      run: pwd
+    - name: files
+      run: ls -al
     # - name: Build image
     #   uses: mamezou-tech/buildpacks-action@master
     #   with:
