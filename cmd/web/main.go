@@ -8,11 +8,16 @@ import (
 )
 
 func main() {
+	version := "¯\\_(ツ)_/¯"
+	if os.Getenv("VERSION") != "" {
+		version = os.Getenv("VERSION")
+	}
+
 	r := gin.Default()
 	r.GET("/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"status":  "ok",
-			"version": "¯\\_(ツ)_/¯",
+			"version": version,
 		})
 	})
 

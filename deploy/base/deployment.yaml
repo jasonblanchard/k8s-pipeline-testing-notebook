@@ -17,3 +17,7 @@ spec:
               configMapKeyRef:
                 name: notebook-config
                 key: PORT
+          - name: VERSION
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.annotations.version
