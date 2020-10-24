@@ -17,6 +17,8 @@ jobs:
       run: pwd
     - name: files
       run: ls -al
+    - name: makefile
+      run: cat Makefile
     # - name: Build image
     #   uses: mamezou-tech/buildpacks-action@master
     #   with:
