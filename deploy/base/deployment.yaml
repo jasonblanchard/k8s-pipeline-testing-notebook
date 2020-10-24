@@ -20,4 +20,4 @@ spec:
           - name: VERSION
             valueFrom:
               fieldRef:
-                fieldPath: metadata.annotations.version
+                fieldPath: metadata.annotations['version']
