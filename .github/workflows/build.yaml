@@ -17,15 +17,5 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: build & push
       run: make push
-    # - name: Build image
-    #   uses: mamezou-tech/buildpacks-action@master
-    #   with:
-    #     image: 'jasonblanchard/k8s-pipeline-notebook'
-    #     tag: ${{ github.sha }}
-    #     path: '.'
-    #     builder: 'heroku/buildpacks:18'
-    # - name: push
-    #   run: |
-    #     docker push jasonblanchard/k8s-pipeline-notebook:${{ github.sha }}
-    #     docker tag jasonblanchard/k8s-pipeline-notebook:${{ github.sha }} jasonblanchard/k8s-pipeline-notebook:latest
-    #     docker push jasonblanchard/k8s-pipeline-notebook:latest
+    - name: deploy
+      run: curl -XPOST -u "${{ secrets.DEPLOY_USERNAME}}:${{secrets.DEPLOY_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/jasonblanchard/k8s-pipeline-testing-deploy/dispatches --data '{"event_type": "deploy", "client_payload": { "version": "${{ github.sha }}"} }'
