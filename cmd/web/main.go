@@ -18,6 +18,7 @@ func main() {
 		c.JSON(200, gin.H{
 			"status":  "ok",
 			"version": version,
+			"more":    "chello",
 		})
 	})
 
