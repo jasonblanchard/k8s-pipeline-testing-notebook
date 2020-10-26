@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
+  - post-sync-smoketests.yaml
+  - post-sync-final.yaml
 commonLabels:
   app: notebook
 configMapGenerator:
