@@ -19,4 +19,4 @@ jobs:
       run: make push
     - name: deploy
       run: |
-        curl -XPOST -u "${{ secrets.DEPLOY_USERNAME}}:${{secrets.DEPLOY_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/jasonblanchard/k8s-pipeline-testing-deploy/dispatches --data '{"event_type": "deploy", "client_payload": { "version": "${{ github.sha }}"} }'
+        curl -XPOST -u "${{ secrets.DEPLOY_USERNAME}}:${{secrets.DEPLOY_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/jasonblanchard/k8s-pipeline-testing-deploy/dispatches --data '{"event_type": "deploy", "client_payload": { "version": "${{ github.sha }}", "service": "notebook", "environment": "edge"} }'
