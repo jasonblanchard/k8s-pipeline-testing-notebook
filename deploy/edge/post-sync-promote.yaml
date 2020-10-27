@@ -21,5 +21,10 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.annotations['version']
+          - name: DEPLOY_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: deploy-token
+                key: token
       restartPolicy: Never
   backoffLimit: 0
