@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: notebook-smoketests-
+  name: notebook-smoketests
   annotations:
     argocd.argoproj.io/hook: PostSync
     # argocd.argoproj.io/hook-delete-policy: HookSucceeded
