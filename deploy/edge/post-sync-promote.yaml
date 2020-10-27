@@ -13,7 +13,7 @@ spec:
       containers:
       - name: sleep
         image: curlimages/curl:latest
-        command: ["echo", "$VERSION"]
+        command: ["bash", "-c", "echo", "$VERSION"]
         env:
           - name: VERSION
             valueFrom:
