@@ -4,7 +4,7 @@ metadata:
   name: notebook-promote
   annotations:
     argocd.argoproj.io/hook: PostSync
-    # argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     argocd.argoproj.io/sync-wave: "2"
 spec:
   ttlSecondsAfterFinished: 600
