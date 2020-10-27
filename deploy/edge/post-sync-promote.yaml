@@ -14,7 +14,8 @@ spec:
       - name: sleep
         # image: curlimages/curl:latest
         image: ubuntu:latest
-        command: ["bash", "-c", "echo", "$VERSION"]
+        # command: ["bash", "-c", "echo", "$VERSION"]
+        command: ["printenv"]
         env:
           - name: VERSION
             valueFrom:
