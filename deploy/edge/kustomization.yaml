@@ -5,3 +5,5 @@ bases:
 nameSuffix: -edge
 commonLabels:
   environment: edge
+resources:
+  - post-sync-promote.yaml
