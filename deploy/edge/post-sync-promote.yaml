@@ -12,7 +12,8 @@ spec:
     spec:
       containers:
       - name: sleep
-        image: curlimages/curl:latest
+        # image: curlimages/curl:latest
+        image: ubuntu:latest
         command: ["bash", "-c", "echo", "$VERSION"]
         env:
           - name: VERSION
