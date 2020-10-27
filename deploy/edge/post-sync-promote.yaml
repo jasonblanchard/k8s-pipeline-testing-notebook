@@ -12,7 +12,12 @@ spec:
     spec:
       containers:
       - name: sleep
-        image: alpine:latest
-        command: ["sleep", "10"]
+        image: curlimages/curl:latest
+        command: ["echo", "$VERSION"]
+        env:
+          - name: VERSION
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.annotations['version']
       restartPolicy: Never
   backoffLimit: 0
