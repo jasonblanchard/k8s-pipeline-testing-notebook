@@ -13,11 +13,16 @@ spec:
       containers:
       - name: sleep
         image: curlimages/curl:latest
-        # command: ["/bin/sh", "-c"]
-        # args: ["curl", "-XPOST -u \"$DEPLOY_USER:$DEPLOY_TOKEN\" -H \"Accept: application/vnd.github.everest-preview+json\" -H \"Content-Type: application/json\" https://api.github.com/repos/jasonblanchard/k8s-pipeline-testing-deploy/dispatches --data '{\"event_type\": \"deploy\", \"client_payload\": { \"version\": \"$VERSION\", \"service\": \"notebook\", \"environment\": \"production\"} }'"]
-        args:
-          # - -XPOST -u "$DEPLOY_USER:$DEPLOY_TOKEN" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/jasonblanchard/k8s-pipeline-testing-deploy/dispatches --data '{"event_type": "deploy", "client_payload": { "version": "$VERSION", "service": "notebook", "environment": "production"} }'
-          - "-XPOST -u \"$DEPLOY_USER:$DEPLOY_TOKEN\" -H \"Accept: application/vnd.github.everest-preview+json\" -H \"Content-Type: application/json\" https://api.github.com/repos/jasonblanchard/k8s-pipeline-testing-deploy/dispatches --data '{\"event_type\": \"deploy\", \"client_payload\": { \"version\": \"$VERSION\", \"service\": \"notebook\", \"environment\": \"production\"} }'"
+        command:
+          - curl
+          - -XPOST
+          - "-u $(DEPLOY_USERNAME):$(DEPLOY_TOKEN)"
+          - "-H \"Accept: application/vnd.github.everest-preview+json\""
+          - "-H \"Content-Type: application/json\""
+          - -v
+          - https://api.github.com/repos/jasonblanchard/k8s-pipeline-testing-deploy/dispatches
+          - --data
+          - '{"event_type": "deploy", "client_payload": { "version": "$(VERSION)", "service": "notebook", "environment": "production" }}'
         env:
           - name: VERSION
             valueFrom:
@@ -28,10 +33,10 @@ spec:
               secretKeyRef:
                 name: deploy-token
                 key: token
-          - name: DEPLOY_TOKEN
+          - name: DEPLOY_USERNAME
             valueFrom:
               secretKeyRef:
                 name: deploy-token
-                key: user
+                key: username
       restartPolicy: Never
   backoffLimit: 0
