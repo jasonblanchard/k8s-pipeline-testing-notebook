@@ -4,6 +4,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - post-sync-smoketests.yaml
+  - virtual-service.yaml
 commonLabels:
   app: notebook
 configMapGenerator:

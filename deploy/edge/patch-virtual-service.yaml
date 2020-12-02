@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: notebook
+spec:
+  http:
+  - match:
+    - uri:
+        prefix: /edge/notebook/
+    rewrite:
+      uri: "/"
+    route:
+    - destination:
+        host: notebook-edge
+        port:
+          number: 8000

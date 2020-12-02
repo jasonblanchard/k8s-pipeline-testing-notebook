@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: notebook
+spec:
+  http:
+  - match:
+    - uri:
+        prefix: /production/notebook/
+    rewrite:
+      uri: "/"
+    route:
+    - destination:
+        host: notebook-prod
+        port:
+          number: 8000

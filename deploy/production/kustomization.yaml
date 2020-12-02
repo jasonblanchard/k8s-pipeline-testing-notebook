@@ -5,3 +5,5 @@ bases:
 nameSuffix: -prod
 commonLabels:
   environment: production
+patchesStrategicMerge:
+  - patch-virtual-service.yaml
