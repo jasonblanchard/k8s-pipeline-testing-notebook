@@ -6,7 +6,6 @@ metadata:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
     argocd.argoproj.io/sync-wave: "2"
-    sidecar.istio.io/inject: "false"
 spec:
   ttlSecondsAfterFinished: 600
   template:
