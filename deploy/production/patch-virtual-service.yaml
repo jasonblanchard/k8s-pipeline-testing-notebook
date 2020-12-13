@@ -4,7 +4,7 @@ metadata:
   name: notebook
 spec:
   hosts:
-    - "edge.lvh.me"
+    - "production.lvh.me"
   http:
   - match:
     - uri:
