@@ -9,8 +9,14 @@ import (
 
 func main() {
 	version := "¯\\_(ツ)_/¯"
+	env := "development"
+
 	if os.Getenv("VERSION") != "" {
 		version = os.Getenv("VERSION")
+	}
+
+	if os.Getenv("ENV") != "" {
+		env = os.Getenv("ENV")
 	}
 
 	r := gin.Default()
@@ -18,6 +24,7 @@ func main() {
 		c.JSON(200, gin.H{
 			"status":  "ok",
 			"version": version,
+			"env":     env,
 			"data":    "chello",
 		})
 	})
