@@ -3,10 +3,12 @@ kind: VirtualService
 metadata:
   name: notebook
 spec:
+  hosts:
+    - "edge.lvh.me"
   http:
   - match:
     - uri:
-        prefix: /production/notebook/
+        prefix: /notebook/
     rewrite:
       uri: "/"
     route:

@@ -4,7 +4,7 @@ metadata:
   name: notebook
 spec:
   hosts:
-  - "*"
+  - "*" # Set by kustomize
   gateways:
   - istio-system/default-gateway
   http:
