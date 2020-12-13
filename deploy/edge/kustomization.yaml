@@ -6,6 +6,6 @@ nameSuffix: -edge
 commonLabels:
   environment: edge
 resources:
-  - post-sync-promote.yaml
+  # - post-sync-promote.yaml
 patchesStrategicMerge:
   - patch-virtual-service.yaml
